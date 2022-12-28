@@ -2,11 +2,12 @@ import logo from "./logo.svg"
 import "./App.css"
 
 import { Provider } from "react-redux"
-import store from "./redux/index"
+import createStore from "./redux/index"
 
 import MovieList from "./components/MovieList"
 
 function App() {
+  const { store } = createStore
   return (
     <Provider store={store}>
       <div className="App">
