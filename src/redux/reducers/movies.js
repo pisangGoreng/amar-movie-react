@@ -2,18 +2,38 @@ import * as types from "../types"
 
 const initialState = {
   movies: [],
+  loading: false,
+  error: null,
 }
 
-export default function users(state = initialState, action) {
+export default function movies(state = initialState, action) {
   switch (action.type) {
     case types.GET_MOVIES:
-      // console.log("masuk ke reducer bang ")
-      // console.log(action)
-      // console.log("")
       return {
         ...state,
         movies: action.payload,
       }
+
+    case types.GET_MOVIES_REQUESTED:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case types.GET_MOVIES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        movies: action.movies,
+      }
+
+    case types.GET_MOVIES_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.message,
+      }
+
     default:
       return state
   }

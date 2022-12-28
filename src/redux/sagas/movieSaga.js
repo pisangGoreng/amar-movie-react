@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects"
+import * as types from "../types"
 
 const apiUrl = "https://jsonplaceholder.typicode.com/users"
 function getApiData() {
@@ -10,14 +11,15 @@ function getApiData() {
 function* fetchMovies(action) {
   try {
     const movies = yield call(getApiData)
-    yield put({ type: "GET_MOVIES_SUCCESS", movies })
+
+    yield put({ type: types.GET_MOVIES_SUCCESS, movies })
   } catch (error) {
-    yield put({ type: "GET_MOVIES_FAILED", message: error.message })
+    yield put({ type: types.GET_MOVIES_FAILED, message: error.message })
   }
 }
 
 function* movieSaga() {
-  yield takeEvery("GET_MOVIES_REQUESTED", fetchMovies)
+  yield takeEvery(types.GET_MOVIES_REQUESTED, fetchMovies)
 }
 
 export default movieSaga
