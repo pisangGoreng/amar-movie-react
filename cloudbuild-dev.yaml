@@ -5,14 +5,14 @@ steps:
       [
         "build",
         "-t",
-        "gcr.io/cv-data-collection/bipt-frontend-dev:$COMMIT_SHA",
+        "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA",
         "--file=./Dockerfile-dev",
         ".",
       ]
 
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/cv-data-collection/bipt-frontend-dev:$COMMIT_SHA"]
+    args: ["push", "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA"]
 
   # Deploy container image to Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
@@ -21,17 +21,17 @@ steps:
       [
         "run",
         "deploy",
-        "bipt-frontend-dev",
+        "amar-react-dev",
         "--image",
-        "gcr.io/cv-data-collection/bipt-frontend-dev:$COMMIT_SHA",
+        "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA",
         "--region",
         "asia-southeast1",
         "--platform",
         "managed",
         "--port",
-        "8080",
+        "3000",
         "--allow-unauthenticated",
       ]
 
 images:
-  - "gcr.io/cv-data-collection/bipt-frontend-dev:$COMMIT_SHA"
+  - "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA"
