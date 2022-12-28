@@ -5,14 +5,14 @@ steps:
       [
         "build",
         "-t",
-        "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA",
+        "gcr.io/cv-data-collection/amar-movies-react:$COMMIT_SHA",
         "--file=./Dockerfile-dev",
         ".",
       ]
 
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA"]
+    args: ["push", "gcr.io/cv-data-collection/amar-movies-react:$COMMIT_SHA"]
 
   # Deploy container image to Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
@@ -21,17 +21,17 @@ steps:
       [
         "run",
         "deploy",
-        "amar-react-dev",
+        "amar-movies-react",
         "--image",
-        "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA",
+        "gcr.io/cv-data-collection/amar-movies-react:$COMMIT_SHA",
         "--region",
         "asia-southeast1",
         "--platform",
         "managed",
         "--port",
-        "3000",
+        "8080",
         "--allow-unauthenticated",
       ]
 
 images:
-  - "gcr.io/nodemailer/amar-react-dev:$COMMIT_SHA"
+  - "gcr.io/cv-data-collection/amar-movies-react:$COMMIT_SHA"
