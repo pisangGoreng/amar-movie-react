@@ -4,13 +4,14 @@ import createStore from './redux/index';
 
 import './App.css';
 
-import MovieList from './components/MovieList';
+// import MovieList from './components/MovieList';
+import AuthPages from './pages/AuthPages';
 
 function App() {
 	const { store } = createStore;
 	return (
 		<Provider store={store}>
-			<div className="App">
+			{/* <div className="App">
 				<header className="App-header">
 					<p>
 						Edit <code>src/App.js</code> and save to reload. kucing
@@ -21,7 +22,8 @@ function App() {
 					</h1>
 					<MovieList />
 				</header>
-			</div>
+			</div> */}
+			<AuthPages />
 		</Provider>
 	);
 }

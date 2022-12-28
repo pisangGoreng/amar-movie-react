@@ -16,3 +16,5 @@ docker images | grep dockerized-react
   docker build -t amar-movie-react -f Dockerfile-dev .
 
   [asia-southeast1]
+
+cwebp -q 80 Home-cinema.png -o Home-cinema.webp
