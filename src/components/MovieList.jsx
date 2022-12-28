@@ -4,7 +4,7 @@ import { getMovies } from "../redux/actions/movies"
 
 export default function MovieList() {
   const dispatch = useDispatch()
-  const movies = useSelector((state) => state.movies)
+  const movies = useSelector((state) => state.movies.movies)
 
   useEffect(() => {
     dispatch(
@@ -20,5 +20,11 @@ export default function MovieList() {
   }, [dispatch])
 
   console.log("movies", movies)
-  return <div>MovieList</div>
+  return (
+    <>
+      {movies.length > 0 &&
+        movies.map((movie) => <p key={movie.id}>{movie.name}</p>)}
+      {movies.length === 0 ? <p>No movies</p> : null}
+    </>
+  )
 }
