@@ -1,25 +1,26 @@
-import { call, put, takeEvery } from "redux-saga/effects"
-import * as types from "../types"
+import { call, put, takeEvery } from 'redux-saga/effects';
+import * as types from '../types';
 
-const apiUrl = "https://jsonplaceholder.typicode.com/users"
+const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 function getApiData() {
-  return fetch(apiUrl).then((response) =>
-    response.json().catch((error) => error)
-  )
+	return fetch(apiUrl).then((response) =>
+		response.json().catch((error) => error)
+	);
 }
 
+// eslint-disable-next-line no-unused-vars
 function* fetchMovies(action) {
-  try {
-    const movies = yield call(getApiData)
+	try {
+		const movies = yield call(getApiData);
 
-    yield put({ type: types.GET_MOVIES_SUCCESS, movies })
-  } catch (error) {
-    yield put({ type: types.GET_MOVIES_FAILED, message: error.message })
-  }
+		yield put({ type: types.GET_MOVIES_SUCCESS, movies });
+	} catch (error) {
+		yield put({ type: types.GET_MOVIES_FAILED, message: error.message });
+	}
 }
 
 function* movieSaga() {
-  yield takeEvery(types.GET_MOVIES_REQUESTED, fetchMovies)
+	yield takeEvery(types.GET_MOVIES_REQUESTED, fetchMovies);
 }
 
-export default movieSaga
+export default movieSaga;
