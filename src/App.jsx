@@ -4,7 +4,6 @@ import createStore from './redux/index';
 
 import './App.css';
 
-// import MovieList from './components/MovieList';
 // import AuthPages from './pages/AuthPages';
 import MoviesPage from './pages/MoviesPage';
 
