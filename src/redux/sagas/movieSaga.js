@@ -44,13 +44,20 @@ function* fetchMovies(action) {
 
 		yield put({
 			type: types.GET_MOVIES_SUCCESS,
-			meta: getMovieParams,
-			details: [...details, ...newMoviesDetails],
-			pagination,
+			payload: {
+				meta: getMovieParams,
+				details: [...details, ...newMoviesDetails],
+				pagination,
+			},
 		});
 	} catch (error) {
-		console.log('dalam catch ', error);
-		yield put({ type: types.GET_MOVIES_FAILED, message: error.message });
+		console.log(error);
+		yield put({
+			type: types.GET_MOVIES_FAILED,
+			payload: {
+				message: error.message,
+			},
+		});
 	}
 }
 

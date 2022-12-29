@@ -3,6 +3,7 @@ import * as types from '../types';
 
 const initialState = {
 	details: [],
+	activePageNumber: 1,
 	meta: {
 		page: 0,
 		limit: 25,
@@ -14,27 +15,31 @@ const initialState = {
 };
 
 export default function movies(state = initialState, action) {
-	switch (action.type) {
+	const { type, payload } = action;
+	switch (type) {
 		case types.GET_MOVIES_REQUESTED:
 			return {
 				...state,
 				loading: true,
 			};
-
 		case types.GET_MOVIES_SUCCESS:
 			return {
 				...state,
 				loading: false,
-				details: action.details,
-				meta: action.meta,
-				pagination: action.pagination,
+				details: payload.details,
+				meta: payload.meta,
+				pagination: payload.pagination,
 			};
-
 		case types.GET_MOVIES_FAILED:
 			return {
 				...state,
 				loading: false,
-				error: action.message,
+				error: payload.message,
+			};
+		case types.SET_ACTIVE_PAGE_NUMBER:
+			return {
+				...state,
+				activePageNumber: payload.pageNumber,
 			};
 
 		default:
