@@ -8,7 +8,7 @@ const initialState = {
 		limit: 25,
 		total: 0,
 	},
-	pagination: {},
+	pagination: null,
 	loading: false,
 	error: null,
 };
@@ -27,6 +27,7 @@ export default function movies(state = initialState, action) {
 				loading: false,
 				details: action.details,
 				meta: action.meta,
+				pagination: action.pagination,
 			};
 
 		case types.GET_MOVIES_FAILED:

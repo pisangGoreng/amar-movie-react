@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import * as types from '../types';
 
-function getApiData({ page, limit }) {
+function getMoviesApi({ page, limit }) {
 	const apiUrl = 'https://api.jikan.moe/v4/anime';
 	return axios({
 		url: `${apiUrl}?limit=${limit}&page=${page}`,
@@ -38,7 +38,7 @@ function* fetchMovies(action) {
 		};
 
 		const { data: newMoviesDetails, pagination } = yield call(
-			getApiData,
+			getMoviesApi,
 			getMovieParams
 		);
 
