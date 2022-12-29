@@ -1,10 +1,15 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+
 import Image from '../components/Image';
 
 import movieLogoWebp from '../assets/images/Home-cinema.webp';
 import movieLogoPng from '../assets/images/Home-cinema.png';
 
 export default function AuthPages() {
+	const location = useLocation();
+	console.log('🚀 ~ file: AuthPages.jsx:10 ~ AuthPages ~ location', location);
+
 	return (
 		<div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
 			<div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden ">

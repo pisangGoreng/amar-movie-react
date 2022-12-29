@@ -1,14 +1,30 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import './index.css';
-import App from './App';
+// import App from './App';
+import createStore from './redux/index';
 import reportWebVitals from './reportWebVitals';
 
+import MoviesPage from './pages/MoviesPage';
+import AuthPage from './pages/AuthPages';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const { store } = createStore;
+
 root.render(
 	<React.StrictMode>
-		<App />
+		<Provider store={store}>
+			<BrowserRouter>
+				<Routes>
+					<Route path="*" element={<MoviesPage />} />
+					<Route path="/auth" element={<AuthPage />} />
+				</Routes>
+			</BrowserRouter>
+		</Provider>
 	</React.StrictMode>
 );
 

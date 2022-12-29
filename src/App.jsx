@@ -1,6 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import createStore from './redux/index';
+// import { Provider } from 'react-redux';
+// import { BrowserRouter } from 'react-router-dom';
+
+// import createStore from './redux/index';
 
 import './App.css';
 
@@ -8,12 +10,12 @@ import './App.css';
 import MoviesPage from './pages/MoviesPage';
 
 function App() {
-	const { store } = createStore;
+	// const { store } = createStore;
 	return (
-		<Provider store={store}>
-			{/* <AuthPages /> */}
+		<>
+			<p>Welcome</p>
 			<MoviesPage />
-		</Provider>
+		</>
 	);
 }
 
