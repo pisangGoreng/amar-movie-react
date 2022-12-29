@@ -2,19 +2,19 @@
 import * as types from '../types';
 
 const initialState = {
-	movies: [],
+	details: [],
+	meta: {
+		page: 0,
+		limit: 25,
+		total: 0,
+	},
+	pagination: {},
 	loading: false,
 	error: null,
 };
 
 export default function movies(state = initialState, action) {
 	switch (action.type) {
-		case types.GET_MOVIES:
-			return {
-				...state,
-				movies: action.payload,
-			};
-
 		case types.GET_MOVIES_REQUESTED:
 			return {
 				...state,
@@ -25,7 +25,8 @@ export default function movies(state = initialState, action) {
 			return {
 				...state,
 				loading: false,
-				movies: action.movies,
+				details: action.details,
+				meta: action.meta,
 			};
 
 		case types.GET_MOVIES_FAILED:
