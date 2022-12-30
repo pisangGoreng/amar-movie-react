@@ -60,7 +60,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd amar-movie-react
 ```
 
 Change branch to dev
