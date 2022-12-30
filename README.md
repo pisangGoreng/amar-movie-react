@@ -8,6 +8,9 @@ using:
 - redux persist
 - react router
 - tailwind css
+- Docker
+- GCP cloud run
+- GCP cloud build
 
 
 
