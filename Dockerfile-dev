@@ -1,0 +1,26 @@
+# source: https://whatdafox.com/deploy-vue-js-on-google-cloud-run/
+# Use the official lightweight Node.js 12 image.
+# https://hub.docker.com/_/node
+FROM node:16-alpine 
+
+ENV PORT=3000
+
+# Create and change to the app directory.
+WORKDIR /app
+
+# Copy local code to the container image.
+COPY . ./
+
+# Install production dependencies.
+RUN npm ci
+
+COPY .env.dev ./.env
+
+RUN npm run build
+
+ENV NODE_ENV production
+
+EXPOSE 3000
+
+# Start the app
+CMD [ "npx", "serve", "build" ]

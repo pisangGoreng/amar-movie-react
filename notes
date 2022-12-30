@@ -12,4 +12,9 @@ docker images | grep dockerized-react
 
 # and map port 3000 inside the container with 3000 on current host
 
-docker run -p 3000:3000 -d dockerized-react
+- Build
+  docker build -t amar-movie-react -f Dockerfile-dev .
+
+  [asia-southeast1]
+
+cwebp -q 80 Home-cinema.png -o Home-cinema.webp
