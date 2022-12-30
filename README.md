@@ -46,6 +46,7 @@ list of article that help to create this
  - [Cache with redux persist](https://stackoverflow.com/questions/56116124/how-to-implement-redux-persist-with-redux-saga)
  - [Design reference](https://tailwindui.com/components)
  - [Project setup](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
+ - [CI/CD with cloud build & github](https://medium.com/@endySantoso/simple-ci-cd-with-gcp-cloud-build-using-docker-part-1-cf27bf3c2638)
 
 
 ## Run Locally
