@@ -8,7 +8,7 @@ export default function MovieCard({ details }) {
 	const { title, images, title_english: titleEnglish } = details;
 	const movieTitle = titleEnglish === null ? title : titleEnglish;
 	return (
-		<Link to="/auth" state={{ payload: details }}>
+		<Link to="/movies" state={{ payload: details }}>
 			<button
 				type="button"
 				key={movieTitle}

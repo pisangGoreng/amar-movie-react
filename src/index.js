@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './index.css';
-// import App from './App';
 import createStore from './redux/index';
 import reportWebVitals from './reportWebVitals';
 
 import MoviesPage from './pages/MoviesPage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
 import AuthPage from './pages/AuthPages';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +21,7 @@ root.render(
 			<BrowserRouter>
 				<Routes>
 					<Route path="*" element={<MoviesPage />} />
+					<Route path="/movies" element={<MovieDetailsPage />} />
 					<Route path="/auth" element={<AuthPage />} />
 				</Routes>
 			</BrowserRouter>

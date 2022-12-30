@@ -105,20 +105,3 @@ export default function MoviesPage() {
 		</div>
 	);
 }
-
-// filteredResults.map((movie) => {
-// 					const { title, images } = movie;
-// 					return (
-// 						<div
-// 							key={title}
-// 							className="w-[180px] h-[180px] bg-red-300 mx-2 my-2 flex-shrink-0"
-// 						>
-// 							<Image
-// 								src={movie.images.webp.image_url}
-// 								fallback={movie.images.jpg.image_url}
-// 								alt={movie.title_english}
-// 							/>
-// 							<h3>{movie.title_english}</h3>
-// 						</div>
-// 					);
-// 				})
